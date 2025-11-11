@@ -1,0 +1,24 @@
+{
+  "definitions": [
+    {
+      "namespace": "custom",
+      "key": "product_featured_image",
+      "name": "Product Featured Image",
+      "description": "Chọn ảnh để hiển thị đại diện cho sản phẩm trên product card. Nếu không chọn, sẽ sử dụng featured image mặc định của sản phẩm.",
+      "type": "file_reference",
+      "file_reference": {
+        "shop_files_source": "shopify_files"
+      }
+    },
+    {
+      "namespace": "custom",
+      "key": "product_featured_video",
+      "name": "Product Featured Video",
+      "description": "Chọn video để hiển thị đại diện cho sản phẩm trên product card. Nếu được chọn, video sẽ ưu tiên hiển thị trên product card.",
+      "type": "file_reference",
+      "file_reference": {
+        "shop_files_source": "shopify_files"
+      }
+    }
+  ]
+}

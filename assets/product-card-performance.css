@@ -1,0 +1,212 @@
+/* ============================================================================
+   PRODUCT CARD - CSS PERFORMANCE OPTIMIZATION
+   ============================================================================
+   Này là CSS optimizations để kèm theo product-card improvements
+   ============================================================================ */
+
+/* 1. CSS CONTAINMENT - Giảm rendering scope
+   ========================================================================== */
+.product-card__figure {
+  /* Giới hạn rendering ảnh hưởng đến phần tử này và con của nó
+     Giảm reflow/repaint của toàn bộ page */
+  contain: layout style paint;
+}
+
+.product-card__info {
+  /* Tương tự cho phần text info */
+  contain: layout style;
+}
+
+/* 2. IMAGE OPTIMIZATION
+   ========================================================================== */
+.product-card__image {
+  /* Tránh layout shift bằng aspect ratio fix */
+  aspect-ratio: 1 / 1;
+  
+  /* Lazy loading image optimization */
+  will-change: auto;
+  
+  /* Smooth image load transition */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product-card__image[loading="lazy"] {
+  /* Placeholder style khi loading */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.product-card__image--primary {
+  /* Eager loading priority */
+  content-visibility: auto;
+  contain-intrinsic-size: 400px 400px;
+}
+
+.product-card__image--secondary {
+  /* Secondary image lower priority */
+  content-visibility: auto;
+  contain-intrinsic-size: 400px 400px;
+}
+
+/* 3. VIDEO OPTIMIZATION
+   ========================================================================== */
+video.product-card__image {
+  /* Video optimization */
+  will-change: transform;
+  
+  /* Prevent video flicker */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Poster image styling */
+video.product-card__image[poster] {
+  /* Smooth transition từ poster sang video */
+  background-size: cover;
+  background-position: center;
+}
+
+/* 4. LAYOUT SHIFT PREVENTION
+   ========================================================================== */
+.product-card__figure {
+  /* Prevent CLS (Cumulative Layout Shift) */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-card {
+  /* Explicit dimensions để tránh layout shift */
+  min-height: 320px;
+}
+
+/* 5. RENDERING OPTIMIZATION
+   ========================================================================== */
+.product-card {
+  /* Transform instead of position change (more performant) */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Lazy load on-demand rendering */
+.product-card[data-reveal] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* 6. FONT OPTIMIZATION
+   ========================================================================== */
+.product-card__title {
+  /* Prevent font-rendering issues */
+  font-display: swap;
+  
+  /* Reduce layout shift on font load */
+  font-size-adjust: 0.5;
+}
+
+/* 7. BADGE OPTIMIZATION
+   ========================================================================== */
+.product-card__badge-list {
+  /* Reduce badge rendering scope */
+  contain: layout style paint;
+  
+  /* Position fixed để không ảnh hưởng layout */
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* 8. QUICK BUY BUTTON
+   ========================================================================== */
+.product-card__quick-buy {
+  /* Prevent button from causing layout shift */
+  contain: layout style;
+  
+  /* Smooth button appearance */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.product-card:hover .product-card__quick-buy {
+  opacity: 1;
+}
+
+/* 9. COLOR SWATCHES
+   ========================================================================== */
+.product-card__swatch-list {
+  /* Optimize swatch rendering */
+  contain: layout style;
+  
+  /* Grid layout optimization */
+  display: grid;
+  gap: 0.5rem;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+}
+
+/* 10. RESPONSIVE OPTIMIZATION
+    ========================================================================== */
+@media (max-width: 640px) {
+  .product-card {
+    /* Mobile optimization */
+    contain: layout style;
+  }
+  
+  .product-card__image {
+    /* Lazy load on mobile */
+    content-visibility: auto;
+  }
+  
+  /* Disable non-critical animations on mobile */
+  .product-card__quick-buy {
+    transition: none;
+  }
+}
+
+/* 11. PRELOAD/PREFETCH HINTS
+    ========================================================================== */
+/* Cho header.liquid hoặc theme.liquid - add importance="high" attribute */
+
+/* 12. ANIMATION PERFORMANCE
+    ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .product-card__image,
+  .product-card__quick-buy,
+  .product-card__swatch-list {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 13. PRINT OPTIMIZATION
+    ========================================================================== */
+@media print {
+  .product-card__quick-buy,
+  .product-card__badge-list {
+    display: none;
+  }
+  
+  .product-card__image {
+    print-color-adjust: exact;
+  }
+}
+
+/* ============================================================================
+   USAGE NOTES
+   ============================================================================
+   1. Thêm CSS này vào theme.css hoặc product-card.css
+   2. Test trên Lighthouse để xem cải thiện
+   3. Monitor Core Web Vitals sau khi apply
+   4. Có thể enable/disable từng optimization tùy theo needs
+   ============================================================================ */
