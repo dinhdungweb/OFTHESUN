@@ -1,1 +1,109 @@
-{"type":"header","name":"Header group","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"message":{"type":"message","settings":{"text":"MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC","url":""}},"message_rUNWRQ":{"type":"message","settings":{"text":"OfTheSun KHÔNG làm thiết kế phổ thông","url":""}}},"block_order":["message","message_rUNWRQ"],"custom_css":[".announcement-bar {padding-block-start: 5px; padding-block-end: 5px;}"],"settings":{"enable_sticky":true,"text_size":"text-xxs","navigation_mode":"arrows","scrolling_speed":10,"background":"#f3805d","background_gradient":"linear-gradient(90deg, rgba(243, 128, 93, 1), rgba(235, 187, 141, 1) 100%)","text_color":"#ffffff"}},"header":{"type":"header","blocks":{"mega_menu_Hq8wq4":{"type":"mega_menu","settings":{"menu_item":"Gemstone","layout":"horizontal","submenu_style":"bold_heading","image_heading_1":"","image_link_1":"","image_text_color_1":"#ffffff","image_heading_2":"","image_link_2":"","image_text_color_2":"#ffffff","image_heading_3":"","image_link_3":"","image_text_color_3":"#ffffff","product":"","product_card_background":"","product_card_text_color":"","promo_content_layout":"grid","stretch_promo":false,"drawer_link_image":"hide"}}},"block_order":["mega_menu_Hq8wq4"],"custom_css":[],"settings":{"enable_sticky":true,"collection_list":[],"hide_on_scroll":false,"logo":"shopify:\/\/shop_images\/LOGO_OF_THE_SUN_1_28563cb0-19b7-4ba7-8eef-5a260259d8bb.png","logo_max_width":170,"logo_mobile_max_width":130,"menu":"main-menu","sidebar_menu":"","secondary_menu":"","menu_open_trigger":"hover","opening_from":"left","layout":"logo_left_navigation_center","show_social_media":true,"show_locale_selector":true,"show_country_selector":true,"show_country_flag":true,"show_country_name":false,"transparent_header_text_color":"#ffffff","reduce_padding":true,"background_opacity":100,"background_blur_radius":0}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message": {
+          "type": "message",
+          "settings": {
+            "text": "MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC",
+            "url": ""
+          }
+        },
+        "message_rUNWRQ": {
+          "type": "message",
+          "settings": {
+            "text": "OfTheSun KHÔNG làm thiết kế phổ thông",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message",
+        "message_rUNWRQ"
+      ],
+      "custom_css": [
+        ".announcement-bar {padding-block-start: 5px; padding-block-end: 5px;}"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "text_size": "text-xxs",
+        "navigation_mode": "arrows",
+        "scrolling_speed": 10,
+        "background": "#f3805d",
+        "background_gradient": "linear-gradient(90deg, rgba(243, 128, 93, 1), rgba(235, 187, 141, 1) 100%)",
+        "text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_Hq8wq4": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Gemstone",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_Hq8wq4"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky": true,
+        "collection_list": [],
+        "hide_on_scroll": false,
+        "logo": "shopify://shop_images/LOGO_NEW_OTS_2025-01.png",
+        "logo_max_width": 170,
+        "logo_mobile_max_width": 130,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "secondary_menu": "",
+        "menu_open_trigger": "hover",
+        "opening_from": "left",
+        "layout": "logo_left_navigation_center",
+        "show_social_media": true,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": true,
+        "show_country_name": false,
+        "transparent_header_text_color": "#ffffff",
+        "reduce_padding": true,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
