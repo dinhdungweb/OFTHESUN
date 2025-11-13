@@ -1,1 +1,86 @@
-{"type":"footer","name":"Footer group","sections":{"footer":{"type":"footer","blocks":{"text":{"type":"text","settings":{"title":"OFTHESUN - AI CŨNG CÓ MẶT TRỜI CỦA RIÊNG MÌNH","content":"<p>Với đội ngũ hơn 100 con người tài năng và nhiệt huyết thì sứ mệnh của chúng tôi là tạo ra những món phụ kiện, trang sức thủ công vượt qua xu hướng và cùng tỏa sáng theo cách chỉ mình bạn có. <\/p><p>Hotline: <a href=\"tel:0393548668\" title=\"tel:0393548668\">039 354 8668<\/a><\/p><p>Email: <a href=\"mailto:ofthesun.vn@gmail.com\" title=\"mailto:ofthesun.vn@gmail.com\">ofthesun.vn@gmail.com<\/a><\/p><p>Showroom OfTheSun: Số 3 Nguyễn Viết Xuân, Phường Phương Liệt, TP. Hà Nội<\/p>","enable_follow_on_shop":true}},"80c556d6-7b00-4019-9d17-8e812476aca5":{"type":"links","settings":{"menu":"main-menu","show_menu_title":true,"menu_title":"LIÊN KẾT NHANH"}},"links":{"type":"links","settings":{"menu":"chinh-sach","show_menu_title":true,"menu_title":"CHÍNH SÁCH"}},"newsletter":{"type":"newsletter","settings":{"image_width":150,"heading_size":"h4","title":"ĐĂNG KÝ NHẬN THÔNG TIN!","content":"<p>Đăng ký nhận thông tin về sản phẩm và khuyến mãi mới nhất từ chúng tôi!<\/p>"}}},"block_order":["text","80c556d6-7b00-4019-9d17-8e812476aca5","links","newsletter"],"custom_css":[".footer {padding-block-end: 0;}"],"settings":{"show_social_media":true,"show_payment_icons":false,"show_country_selector":true,"show_country_flag":true,"show_country_name":true,"show_locale_selector":true}},"custom_html_TYcBUB":{"type":"custom-html","settings":{"full_width":true,"remove_vertical_spacing":false,"remove_horizontal_spacing":false,"html":"<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0849\/3147\/7815\/files\/LOGO_OF_THE_SUN_1_28563cb0-19b7-4ba7-8eef-5a260259d8bb.png?v=1701420315\" loading=\"lazy\"><p style=\"text-align: center\"><a href=\"https:\/\/sunrockgroup.vn\/\" target=\"blank\">Made by Sunrock<\/a><\/p>","background":"#f2f2f2","background_gradient":"","text_color":""}}},"order":["footer","custom_html_TYcBUB"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "OFTHESUN - AI CŨNG CÓ MẶT TRỜI CỦA RIÊNG MÌNH",
+            "content": "<p>Với đội ngũ hơn 100 con người tài năng và nhiệt huyết thì sứ mệnh của chúng tôi là tạo ra những món phụ kiện, trang sức thủ công vượt qua xu hướng và cùng tỏa sáng theo cách chỉ mình bạn có. </p><p>Hotline: <a href=\"tel:0393548668\" title=\"tel:0393548668\">039 354 8668</a></p><p>Email: <a href=\"mailto:ofthesun.vn@gmail.com\" title=\"mailto:ofthesun.vn@gmail.com\">ofthesun.vn@gmail.com</a></p><p>Showroom OfTheSun: Số 3 Nguyễn Viết Xuân, Phường Phương Liệt, TP. Hà Nội</p>",
+            "enable_follow_on_shop": true
+          }
+        },
+        "80c556d6-7b00-4019-9d17-8e812476aca5": {
+          "type": "links",
+          "settings": {
+            "menu": "main-menu",
+            "show_menu_title": true,
+            "menu_title": "LIÊN KẾT NHANH"
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "chinh-sach",
+            "show_menu_title": true,
+            "menu_title": "CHÍNH SÁCH"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "image_width": 150,
+            "heading_size": "h4",
+            "title": "ĐĂNG KÝ NHẬN THÔNG TIN!",
+            "content": "<p>Đăng ký nhận thông tin về sản phẩm và khuyến mãi mới nhất từ chúng tôi!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "80c556d6-7b00-4019-9d17-8e812476aca5",
+        "links",
+        "newsletter"
+      ],
+      "custom_css": [
+        ".footer {padding-block-end: 0;}"
+      ],
+      "settings": {
+        "show_social_media": true,
+        "show_payment_icons": false,
+        "show_country_selector": true,
+        "show_country_flag": true,
+        "show_country_name": true,
+        "show_locale_selector": true
+      }
+    },
+    "custom_html_TYcBUB": {
+      "type": "custom-html",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "html": "<img src=\"https://cdn.shopify.com/s/files/1/0849/3147/7815/files/LOGO_NEW_OTS_2025-01.png?v=1763018085\" loading=\"lazy\"><p style=\"text-align: center\"><a href=\"https://sunrockgroup.vn/\" target=\"blank\">Made by Sunrock</a></p>",
+        "background": "#f2f2f2",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "custom_html_TYcBUB"
+  ]
+}
