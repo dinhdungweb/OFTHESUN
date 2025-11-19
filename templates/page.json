@@ -1,1 +1,89 @@
-{"sections":{"main":{"type":"main-page","settings":{"content_width":"80ch"}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "rich_text_MQzXzh": {
+      "type": "rich-text",
+      "blocks": {
+        "liquid_dfT9bd": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<p></p>"
+          }
+        },
+        "heading_4pimLL": {
+          "type": "heading",
+          "settings": {
+            "text": "Black Friday",
+            "heading_tag": "h1",
+            "text_color": "#f28964",
+            "gradient": ""
+          }
+        },
+        "subheading_hjHJKT": {
+          "type": "subheading",
+          "settings": {
+            "text": "Final Season Off - Sale Up To 50%"
+          }
+        },
+        "richtext_jJfk8y": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Black Friday đang đến rồi, và chúng mình muốn gửi tới nàng những ưu đãi sớm nhất. <br/>Đăng ký ngay để không bỏ lỡ ưu đãi giảm đến 50% và thêm nhiều “đặc quyền xinh đẹp” trong tương lai nữa nhé!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_dfT9bd",
+        "heading_4pimLL",
+        "subheading_hjHJKT",
+        "richtext_jJfk8y"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "newsletter_daC8Lq": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "full_width": true,
+        "show_icon": true,
+        "title": "Newsletter",
+        "content": "<p>Write something about what your customers will receive by subscribing to your newsletter.</p>",
+        "button_text": "Subscribe",
+        "subtext": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_MQzXzh",
+    "newsletter_daC8Lq"
+  ]
+}
