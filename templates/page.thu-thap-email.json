@@ -68,8 +68,8 @@
       "name": "Newsletter",
       "settings": {
         "full_width": true,
-        "show_icon": false,
-        "title": "",
+        "show_icon": true,
+        "title": "Đăng ký Email",
         "content": "",
         "button_text": "Nhận ưu đãi sớm ngay",
         "subtext": "Of The Sun chỉ gửi điều xinh đẹp, không spam, không phiền nàng đâu ạ!",
