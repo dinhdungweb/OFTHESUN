@@ -53,6 +53,9 @@
         "subheading_hjHJKT",
         "richtext_jJfk8y"
       ],
+      "custom_css": [
+        ".rich-text .h1 {font-size: 2rem!important}"
+      ],
       "name": "Rich text",
       "settings": {
         "full_width": true,
