@@ -65,6 +65,9 @@
     },
     "newsletter_daC8Lq": {
       "type": "newsletter",
+      "custom_css": [
+        ".newsletter-content .h2 {color: #F28964}"
+      ],
       "name": "Newsletter",
       "settings": {
         "full_width": true,
