@@ -79,11 +79,62 @@
         "button_background": "",
         "button_text_color": ""
       }
+    },
+    "rich_text_UTizD3": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_HiUD4k": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Cảm ơn nàng đã ghé Of The Sun hôm nay.<br/>Hẹn gặp nàng trong đợt ưu đãi rực rỡ nhất năm nhé!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_HiUD4k"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "featured_collection_9VbfNY": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "all-products",
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 8,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "Vì nàng xứng đáng với những điều đẹp nhất",
+        "content": "<p>Chúng mình tin rằng mỗi khoảnh khắc nàng toả sáng đều xứng đáng được nâng niu. Of The Sun gửi nàng một vài gợi ý cho món trang sức mang lại may mắn và cảm hứng mỗi ngày nhé!</p>",
+        "link_url": "shopify://collections/all-products",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
     }
   },
   "order": [
     "main",
     "rich_text_MQzXzh",
-    "newsletter_daC8Lq"
+    "newsletter_daC8Lq",
+    "rich_text_UTizD3",
+    "featured_collection_9VbfNY"
   ]
 }
