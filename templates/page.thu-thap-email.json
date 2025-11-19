@@ -107,7 +107,7 @@
       "type": "featured-collection",
       "name": "Featured collection",
       "settings": {
-        "collection": "all-products",
+        "collection": "black-friday",
         "products": [],
         "full_width": true,
         "stack_products": true,
