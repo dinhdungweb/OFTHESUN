@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "rich_text_MQzXzh": {
+      "type": "rich-text",
+      "blocks": {
+        "liquid_dfT9bd": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<p></p>"
+          }
+        },
+        "heading_4pimLL": {
+          "type": "heading",
+          "settings": {
+            "text": "Black Friday",
+            "heading_tag": "h1",
+            "text_color": "#f28964",
+            "gradient": ""
+          }
+        },
+        "subheading_hjHJKT": {
+          "type": "subheading",
+          "settings": {
+            "text": "Final Season Off - Sale Up To 50%"
+          }
+        },
+        "richtext_jJfk8y": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Black Friday đang đến rồi, và chúng mình muốn gửi tới nàng những ưu đãi sớm nhất. <br/>Đăng ký ngay để không bỏ lỡ ưu đãi giảm đến 50% và thêm nhiều “đặc quyền xinh đẹp” trong tương lai nữa nhé!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_dfT9bd",
+        "heading_4pimLL",
+        "subheading_hjHJKT",
+        "richtext_jJfk8y"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "newsletter_daC8Lq": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "full_width": true,
+        "show_icon": false,
+        "title": "",
+        "content": "",
+        "button_text": "Nhận ưu đãi sớm ngay",
+        "subtext": "Of The Sun chỉ gửi điều xinh đẹp, không spam, không phiền nàng đâu ạ!",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "rich_text_UTizD3": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_HiUD4k": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Cảm ơn nàng đã ghé Of The Sun hôm nay.<br/>Hẹn gặp nàng trong đợt ưu đãi rực rỡ nhất năm nhé!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_HiUD4k"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "featured_collection_9VbfNY": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "all-products",
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 8,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "Vì nàng xứng đáng với những điều đẹp nhất",
+        "content": "<p>Chúng mình tin rằng mỗi khoảnh khắc nàng toả sáng đều xứng đáng được nâng niu. Of The Sun gửi nàng một vài gợi ý cho món trang sức mang lại may mắn và cảm hứng mỗi ngày nhé!</p>",
+        "link_url": "shopify://collections/all-products",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_MQzXzh",
+    "newsletter_daC8Lq",
+    "rich_text_UTizD3",
+    "featured_collection_9VbfNY"
+  ]
+}
