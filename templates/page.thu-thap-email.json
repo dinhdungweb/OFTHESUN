@@ -54,7 +54,7 @@
         "richtext_jJfk8y"
       ],
       "custom_css": [
-        ".rich-text .h1 {font-size: 2rem!important}"
+        ".rich-text .h1 {font-size: 2rem !important; line-height: 2;}"
       ],
       "name": "Rich text",
       "settings": {
