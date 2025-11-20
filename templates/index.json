@@ -551,6 +551,19 @@
         "text_color": "",
         "text_gradient": ""
       }
+    },
+    "popup_overlay_TkPHMV": {
+      "type": "popup-overlay",
+      "name": "Popup Newsletter",
+      "settings": {
+        "image": "shopify://shop_images/OTS_BLACK_FRIDAY.jpg",
+        "title": "",
+        "description": "",
+        "button_text": "",
+        "button_link": "",
+        "delay": 3000,
+        "show_once": true
+      }
     }
   },
   "order": [
@@ -563,6 +576,7 @@
     "image_link_blocks_xbYzTf",
     "media_with_text_GURDhz",
     "blog_posts_3wD96G",
-    "scrolling_text_L6FR8w"
+    "scrolling_text_L6FR8w",
+    "popup_overlay_TkPHMV"
   ]
 }
