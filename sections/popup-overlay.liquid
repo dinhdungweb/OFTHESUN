@@ -194,11 +194,13 @@
         <p class="popup-description">{{ section.settings.description }}</p>
       </div>
       
-      <div class="popup-cta-wrapper">
-        <a href="{{ section.settings.button_link }}" class="popup-cta">
-          {{ section.settings.button_text }}
-        </a>
-      </div>
+      {% if section.settings.button_text %}
+        <div class="popup-cta-wrapper">
+            <a href="{{ section.settings.button_link }}" class="popup-cta">
+            {{ section.settings.button_text }}
+            </a>
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>
