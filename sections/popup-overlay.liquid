@@ -170,28 +170,15 @@
     <div class="popup-close" data-popup-close>×</div>
     
     {% if section.settings.image != blank %}
-      <img 
-        data-popup-image="{{ section.settings.image | img_url: '800x' }}" 
-        alt="{{ section.settings.title }}"
-        class="popup-image"
-        loading="lazy"
-      >
+      <a href="{{ section.settings.image_link }}" class="popup-link">
+        <img 
+            data-popup-image="{{ section.settings.image | img_url: '800x' }}" 
+            alt="{{ section.settings.title }}"
+            class="popup-image"
+            loading="lazy"
+        >
+      </a>
     {% endif %}
-
-    <div class="popup-content">
-      <div class="popup-text-wrapper">
-        <h2 class="popup-title h2">{{ section.settings.title }}</h2>
-        <p class="popup-description">{{ section.settings.description }}</p>
-      </div>
-      
-      {% if section.settings.button_text %}
-        <div class="popup-cta-wrapper">
-            <a href="{{ section.settings.button_link }}" class="popup-cta">
-            {{ section.settings.button_text }}
-            </a>
-        </div>
-      {% endif %}
-    </div>
   </div>
 </div>
 
@@ -205,27 +192,9 @@
       "label": "Hình ảnh popup"
     },
     {
-      "type": "text",
-      "id": "title",
-      "label": "Tiêu đề",
-      "default": "BẠN ĐANG TÌN VÀO ĐIỀU GÌ?"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Mô tả",
-      "default": "Không nhiều người giỏi được em tin bé cuộc sống nhiều thứ thách. Nhưng chính những mảnh vỡ tiền bạnh trinh sẽ một thất sự thành mẻ và là cơ chế tốt để đến tâm mở là sự làm thành lập bạn với lời."
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Text nút CTA",
-      "default": "KHÁM PHÁ BST ĐỨC TIN"
-    },
-    {
       "type": "url",
-      "id": "button_link",
-      "label": "Link nút CTA"
+      "id": "image_link",
+      "label": "Link ảnh"
     },
     {
       "type": "range",
