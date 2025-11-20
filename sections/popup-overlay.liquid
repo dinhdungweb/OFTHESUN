@@ -1,163 +1,261 @@
-{%- liquid
-  assign heading_tag = "h2"
-  if section.settings.heading_h1
-    assign heading_tag = "h1"
-  endif
--%}
+{% comment %}
+  Popup Section - Shopify
+  File: sections/popup-newsletter.liquid
+{% endcomment %}
 
-{% if section.settings.mode != 'disabled' %}
-<section id="popup-overlay-{{ section.id }}" class="popup-overlay pos-{{ section.settings.position }}"
-         data-delay-seconds="{{ section.settings.popup_delay_seconds }}"
-         data-dismiss-for-days="{{ section.settings.popup_dismiss_for_days }}"
-         data-freeze-scroll="{{ section.settings.freeze_scroll }}"
-         aria-hidden="true" role="dialog">
+<style>
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
-  <style>
-    #popup-overlay-{{ section.id }} { position: fixed; inset: 0; display: none; z-index: 99999; }
-    #popup-overlay-{{ section.id }}.is-open { display: block; }
+  .popup-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
 
-    /* Backdrop */
-    #popup-overlay-{{ section.id }} .overlay__backdrop { position:absolute; inset:0; background: rgba(0,0,0,.5); }
+  .popup-container {
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
 
-    /* Modal */
-    #popup-overlay-{{ section.id }} .overlay__modal { position:relative; z-index:2; max-width: 980px; margin: 5vh auto; border-radius: 12px; overflow:hidden; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+  .popup-overlay.active .popup-container {
+    transform: scale(1);
+  }
 
-    /* Layout positions */
-    #popup-overlay-{{ section.id }}.pos-center .overlay__modal { margin: 5vh auto; }
-    #popup-overlay-{{ section.id }}.pos-bottom-left .overlay__modal { margin: 0 0 24px 24px; position:absolute; left:0; bottom:0; }
-    #popup-overlay-{{ section.id }}.pos-bottom-right .overlay__modal { margin: 0 24px 24px 0; position:absolute; right:0; bottom:0; }
+  .popup-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+  }
 
-    /* Background */
-    #popup-overlay-{{ section.id }} .overlay__bg { position:relative; min-height: {{ section.settings.height_mobile }}px; background-image: {% if section.settings.bg_image %}url('{{ section.settings.bg_image | image_url: width: 1600 }}'){% else %}none{% endif %}; background-size: cover; background-position: center; }
-    @media(min-width: 768px){
-      #popup-overlay-{{ section.id }} .overlay__bg { min-height: {{ section.settings.height_desktop }}px; }
+  .popup-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 2;
+  }
+
+  .popup-content {
+    position: relative;
+    z-index: 3;
+    padding: 50px 40px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 650px;
+  }
+
+  .popup-text-wrapper {
+    margin-bottom: auto;
+  }
+
+  .popup-title {
+    margin-bottom: 20px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-description {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    color: #ffffff;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-cta-wrapper {
+    margin-top: auto;
+    padding-top: 30px;
+  }
+
+  .popup-cta {
+    display: inline-block;
+    background: #f5a623;
+    color: #1a1a1a;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .popup-cta:hover {
+    background: #e09615;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 166, 35, 0.4);
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .popup-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 768px) {
+    .popup-container {
+      width: 95%;
+      max-width: 450px;
+      min-height: 500px;
     }
-    #popup-overlay-{{ section.id }} .overlay__tint { position:absolute; inset:0; background: {{ section.settings.tint_color }}; opacity: {{ section.settings.tint_opacity | divided_by: 100.0 }}; }
 
-    /* Content */
-    #popup-overlay-{{ section.id }} .overlay__content { position:absolute; inset:0; display:flex; justify-content:center; align-items:center; padding: 24px; }
-    #popup-overlay-{{ section.id }} .overlay__content.h-left  { justify-content:flex-start; }
-    #popup-overlay-{{ section.id }} .overlay__content.h-right { justify-content:flex-end; }
-    #popup-overlay-{{ section.id }} .overlay__content.v-top    { align-items:flex-start; }
-    #popup-overlay-{{ section.id }} .overlay__content.v-bottom { align-items:flex-end; }
-    #popup-overlay-{{ section.id }} .overlay__inner { max-width: {{ section.settings.content_max_width }}px; transform: translate({{ section.settings.x_offset }}px, {{ section.settings.y_offset }}px); text-align: {{ section.settings.text_align }}; }
+    .popup-content {
+      padding: 40px 25px;
+      min-height: 500px;
+    }
 
-    #popup-overlay-{{ section.id }} .overlay__title { margin:0 0 10px; font-size: {{ section.settings.title_size }}px; font-weight:700; letter-spacing:.5px; text-transform: uppercase; color: {{ section.settings.title_color }}; }
-    #popup-overlay-{{ section.id }} .overlay__desc  { margin:0 0 16px; color: {{ section.settings.desc_color }}; }
-    #popup-overlay-{{ section.id }} .overlay__cta   { margin-top:12px; }
-    #popup-overlay-{{ section.id }} .overlay__cta .button { display:inline-block; padding:12px 18px; background: {{ section.settings.button_bg }}; color: {{ section.settings.button_text }}; border:none; border-radius:8px; text-decoration:none; }
+    .popup-description {
+      font-size: 13px;
+      line-height: 1.7;
+    }
 
-    #popup-overlay-{{ section.id }} .overlay__close { position:absolute; top:10px; right:12px; z-index:3; background:transparent; border:none; color:#fff; padding:8px; cursor:pointer; }
-    #popup-overlay-{{ section.id }} .overlay__close svg { width:22px; height:22px; }
-  </style>
+    .popup-cta {
+      padding: 12px 30px;
+      font-size: 13px;
+    }
+  }
+</style>
 
-  <button class="overlay__close" aria-label="Đóng">{% render 'svg-close' %}</button>
-  <div class="overlay__backdrop" data-close="true"></div>
+<div class="popup-overlay" id="newsletterPopup-{{ section.id }}" data-popup-delay="{{ section.settings.delay | default: 5000 }}" data-popup-show-once="{{ section.settings.show_once }}">
+  <div class="popup-container">
+    <div class="popup-close" data-popup-close>×</div>
+    
+    {% if section.settings.image != blank %}
+      <img 
+        data-popup-image="{{ section.settings.image | img_url: '800x' }}" 
+        alt="{{ section.settings.title }}"
+        class="popup-image"
+        loading="lazy"
+      >
+    {% endif %}
 
-  <div class="overlay__modal" role="document">
-    <div class="overlay__bg">
-      <div class="overlay__tint"></div>
-      <div class="overlay__content h-{{ section.settings.h_align }} v-{{ section.settings.v_align }}">
-        <div class="overlay__inner">
-          {% if section.settings.title != blank %}
-            <{{ heading_tag }} class="overlay__title">{{ section.settings.title | escape }}</{{ heading_tag }}>
-          {% endif %}
-          {% if section.settings.text != blank %}
-            <div class="overlay__desc rte">{{ section.settings.text }}</div>
-          {% endif %}
-          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <div class="overlay__cta">
-              <a class="button" href="{{ section.settings.button_link }}"{% if section.settings.button_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.button_label }}</a>
-            </div>
-          {% endif %}
-        </div>
+    <div class="popup-content">
+      <div class="popup-text-wrapper">
+        <h2 class="popup-title h2">{{ section.settings.title }}</h2>
+        <p class="popup-description">{{ section.settings.description }}</p>
+      </div>
+      
+      <div class="popup-cta-wrapper">
+        <a href="{{ section.settings.button_link }}" class="popup-cta">
+          {{ section.settings.button_text }}
+        </a>
       </div>
     </div>
   </div>
-
-  <script>
-    (function(){
-      var el = document.getElementById('popup-overlay-{{ section.id }}');
-      if(!el) return;
-      var delay = parseInt(el.getAttribute('data-delay-seconds')) || 0;
-      var dismissDays = parseInt(el.getAttribute('data-dismiss-for-days')) || 30;
-      var key = 'popupOverlayDismissed-{{ section.id }}';
-      var now = Date.now();
-      var msDays = dismissDays * 24 * 60 * 60 * 1000;
-      var dismissedAt = parseInt(localStorage.getItem(key) || '0');
-      var isTesting = {% if section.settings.mode == 'testing' %}true{% else %}false{% endif %};
-
-      function open(){
-        el.classList.add('is-open');
-        el.setAttribute('aria-hidden', 'false');
-        if('{{ section.settings.freeze_scroll }}' === 'true') {
-          document.documentElement.style.overflow = 'hidden';
-        }
-      }
-      function close(){
-        el.classList.remove('is-open');
-        el.setAttribute('aria-hidden', 'true');
-        document.documentElement.style.overflow = '';
-      }
-
-      el.addEventListener('click', function(e){
-        if(e.target.matches('[data-close]') || e.target.closest('.overlay__close')){
-          localStorage.setItem(key, String(Date.now()));
-          close();
-        }
-      });
-
-      var shouldShow = isTesting || (dismissedAt === 0 || (now - dismissedAt) > msDays);
-      {% if request.design_mode %}
-        open();
-      {% else %}
-        if(shouldShow){ setTimeout(open, delay * 1000); }
-      {% endif %}
-    })();
-  </script>
-</section>
-{% endif %}
+</div>
 
 {% schema %}
 {
-  "name": "Popup overlay",
-  "class": "section-popup-overlay",
+  "name": "Popup Newsletter",
   "settings": [
-    {"type":"select","id":"mode","label":"Chế độ","default":"enabled","options":[{"value":"enabled","label":"Bật"},{"value":"testing","label":"Chế độ thử"},{"value":"disabled","label":"Tắt"}]},
-    {"type":"range","id":"popup_delay_seconds","label":"Độ trễ (giây)","default":0,"min":0,"max":60,"step":1,"unit":"s"},
-    {"type":"range","id":"popup_dismiss_for_days","label":"Số ngày ẩn sau khi đóng","default":30,"min":1,"max":90,"step":1,"unit":"day"},
-    {"type":"checkbox","id":"freeze_scroll","label":"Khóa cuộn khi mở","default":false},
-    {"type":"select","id":"position","label":"Vị trí popup","default":"center","options":[{"value":"center","label":"Giữa"},{"value":"bottom-left","label":"Góc trái dưới"},{"value":"bottom-right","label":"Góc phải dưới"}]},
-
-    {"type":"image_picker","id":"bg_image","label":"Ảnh nền"},
-    {"type":"color","id":"tint_color","label":"Màu phủ ảnh","default":"#000000"},
-    {"type":"range","id":"tint_opacity","label":"Độ mờ phủ (%)","min":0,"max":100,"step":5,"default":35},
-    {"type":"range","id":"height_desktop","label":"Chiều cao (Desktop)","min":200,"max":1200,"step":10,"default":520,"unit":"px"},
-    {"type":"range","id":"height_mobile","label":"Chiều cao (Mobile)","min":200,"max":1000,"step":10,"default":420,"unit":"px"},
-
-    {"type":"text","id":"title","label":"Tiêu đề","default":"Tiêu đề popup"},
-    {"type":"range","id":"title_size","label":"Cỡ chữ tiêu đề (px)","min":14,"max":48,"step":1,"default":24,"unit":"px"},
-    {"type":"color","id":"title_color","label":"Màu tiêu đề","default":"#ffffff"},
-    {"type":"richtext","id":"text","label":"Mô tả","default":"<p>Mô tả ngắn gọn về nội dung popup.<\/p>"},
-    {"type":"color","id":"desc_color","label":"Màu mô tả","default":"#cdcdcd"},
-
-    {"type":"select","id":"h_align","label":"Căn ngang nội dung","default":"center","options":[{"value":"left","label":"Trái"},{"value":"center","label":"Giữa"},{"value":"right","label":"Phải"}]},
-    {"type":"select","id":"v_align","label":"Căn dọc nội dung","default":"middle","options":[{"value":"top","label":"Trên"},{"value":"middle","label":"Giữa"},{"value":"bottom","label":"Dưới"}]},
-    {"type":"select","id":"text_align","label":"Căn chữ","default":"center","options":[{"value":"left","label":"Trái"},{"value":"center","label":"Giữa"},{"value":"right","label":"Phải"}]},
-    {"type":"range","id":"x_offset","label":"Dịch ngang (px)","min":-200,"max":200,"step":5,"default":0,"unit":"px"},
-    {"type":"range","id":"y_offset","label":"Dịch dọc (px)","min":-200,"max":200,"step":5,"default":0,"unit":"px"},
-    {"type":"range","id":"content_max_width","label":"Rộng tối đa nội dung (px)","min":240,"max":900,"step":10,"default":560,"unit":"px"},
-
-    {"type":"text","id":"button_label","label":"Nhãn nút","default":"Khám phá"},
-    {"type":"url","id":"button_link","label":"Link nút"},
-    {"type":"checkbox","id":"button_new_tab","label":"Mở tab mới","default":true},
-    {"type":"color","id":"button_bg","label":"Màu nền nút","default":"#fab320"},
-    {"type":"color","id":"button_text","label":"Màu chữ nút","default":"#000000"},
-
-    {"type":"checkbox","id":"heading_h1","label":"Dùng thẻ H1 cho tiêu đề","default":false}
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hình ảnh popup"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Tiêu đề",
+      "default": "BẠN ĐANG TÌN VÀO ĐIỀU GÌ?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Mô tả",
+      "default": "Không nhiều người giỏi được em tin bé cuộc sống nhiều thứ thách. Nhưng chính những mảnh vỡ tiền bạnh trinh sẽ một thất sự thành mẻ và là cơ chế tốt để đến tâm mở là sự làm thành lập bạn với lời."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Text nút CTA",
+      "default": "KHÁM PHÁ BST ĐỨC TIN"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link nút CTA"
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "min": 0,
+      "max": 5000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Delay hiển thị (milliseconds)",
+      "default": 3000
+    },
+    {
+      "type": "checkbox",
+      "id": "show_once",
+      "label": "Chỉ hiển thị một lần",
+      "default": true
+    }
   ],
   "presets": [
-    {"name": "Popup overlay", "category": "Popup"}
+    {
+      "name": "Popup Newsletter"
+    }
   ]
 }
 {% endschema %}
