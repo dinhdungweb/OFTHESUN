@@ -557,10 +557,7 @@
       "name": "Popup Newsletter",
       "settings": {
         "image": "shopify://shop_images/OTS_BLACK_FRIDAY.jpg",
-        "title": "",
-        "description": "",
-        "button_text": "",
-        "button_link": "",
+        "image_link": "shopify://collections/black-friday",
         "delay": 3000,
         "show_once": true
       }
