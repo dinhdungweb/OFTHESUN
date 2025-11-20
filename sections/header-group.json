@@ -17,14 +17,14 @@
         "message": {
           "type": "message",
           "settings": {
-            "text": "MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC",
-            "url": ""
+            "text": "BLACK FRIDAY -  SALE UP TO 50%",
+            "url": "shopify://pages/black-friday-final-season-off"
           }
         },
         "message_rUNWRQ": {
           "type": "message",
           "settings": {
-            "text": "OfTheSun KHÔNG làm thiết kế phổ thông",
+            "text": "Miễn phí vận chuyển toàn quốc",
             "url": ""
           }
         }

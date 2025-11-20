@@ -447,6 +447,7 @@
         "item_XgYzbK",
         "item_V7RqTN"
       ],
+      "disabled": true,
       "name": "Image link blocks",
       "settings": {
         "full_width": true,
