@@ -195,7 +195,7 @@
   "platform_customizations": {
     "custom_css": [
       ".blog-posts {--blog-articles-gap: 1.5rem;}",
-      ".header__link-list > ul > li:last-child > a {background: #a51919; color: #111 !important; padding: 5px 10px;}"
+      ".header__link-list > ul > li:last-child > a {background: #a51919; color: #F2F2F2 !important; padding: 5px 10px;}"
     ]
   }
 }
