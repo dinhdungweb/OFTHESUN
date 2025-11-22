@@ -21,8 +21,16 @@
             "url": "shopify://pages/black-friday-final-season-off"
           }
         },
+        "message_fx7Qyb": {
+          "type": "message",
+          "settings": {
+            "text": "Chương trình ưu đãi lớn nhất năm",
+            "url": ""
+          }
+        },
         "message_rUNWRQ": {
           "type": "message",
+          "disabled": true,
           "settings": {
             "text": "Miễn phí vận chuyển toàn quốc",
             "url": ""
@@ -31,6 +39,7 @@
       },
       "block_order": [
         "message",
+        "message_fx7Qyb",
         "message_rUNWRQ"
       ],
       "custom_css": [
