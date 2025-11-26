@@ -49,42 +49,22 @@ Supported variables
           {%- endif -%}
 
           {%- if form_id != blank or is_variant_on_sale -%}
-            {%- comment -%}Tính % giảm giá tối đa cho sản phẩm có nhiều biến thể{%- endcomment -%}
-            {%- if form_id == blank and product.price_varies -%}
-              {%- assign max_discount_percentage = 0 -%}
-              {%- assign max_discount_amount = 0 -%}
-              
-              {%- for pv in product.variants -%}
-                {%- if pv.compare_at_price > pv.price -%}
-                  {%- if settings.discount_mode == 'percentage' -%}
-                    {%- assign current_discount = pv.compare_at_price | minus: pv.price | times: 100.0 | divided_by: pv.compare_at_price | round -%}
-                    {%- if current_discount > max_discount_percentage -%}
-                      {%- assign max_discount_percentage = current_discount -%}
-                    {%- endif -%}
-                  {%- else -%}
-                    {%- assign current_discount = pv.compare_at_price | minus: pv.price -%}
-                    {%- if current_discount > max_discount_amount -%}
-                      {%- assign max_discount_amount = current_discount -%}
-                    {%- endif -%}
-                  {%- endif -%}
-                {%- endif -%}
-              {%- endfor -%}
-              
-              {%- if settings.discount_mode == 'percentage' -%}
-                {%- assign savings = max_discount_percentage | append: '%' -%}
-              {%- else -%}
-                {%- capture savings -%}{{ max_discount_amount | money }}{%- endcapture -%}
-              {%- endif -%}
+            {%- if settings.discount_mode == 'percentage' -%}
+              {%- assign savings = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round | append: '%' -%}
             {%- else -%}
-              {%- if settings.discount_mode == 'percentage' -%}
-                {%- assign savings = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round | append: '%' -%}
-              {%- else -%}
-                {%- capture savings -%}{{ variant.compare_at_price | minus: variant.price | money }}{%- endcapture -%}
-              {%- endif -%}
+              {%- capture savings -%}{{ variant.compare_at_price | minus: variant.price | money }}{%- endcapture -%}
             {%- endif -%}
 
+            {%- comment -%}
+            When showing for product card (form_id == blank) and that the product price varies, we show a sale badge without explicit saving
+            as it can cause confusion
+            {%- endcomment -%}
             <on-sale-badge {% unless is_variant_on_sale %}hidden{% endunless %} {% if settings.show_discount %}discount-mode="{{ settings.discount_mode | escape }}"{% endif %} {% if form_id != blank %}form="{{ form_id }}"{% endif %} class="badge badge--on-sale">
-              {{- 'product.general.discount_badge_html' | t: savings: savings -}}
+              {%- if form_id == blank and product.price_varies -%}
+                {{- 'product.general.on_sale_badge' | t -}}
+              {%- else -%}
+                {{- 'product.general.discount_badge_html' | t: savings: savings -}}
+              {%- endif -%}
             </on-sale-badge>
           {%- endif -%}
         {%- endif -%}
