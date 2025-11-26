@@ -53,6 +53,8 @@
     "show_quick_buy": true,
     "show_product_rating": true,
     "product_rating_mode": "count",
+    "show_sold_out_badge": true,
+    "show_discount": true,
     "discount_mode": "percentage",
     "product_color_display": "variant",
     "product_image_aspect_ratio": "square",
