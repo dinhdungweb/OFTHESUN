@@ -61,7 +61,7 @@
     "product_info_alignment": "start",
     "cart_type": "drawer",
     "cart_icon": "tote_bag",
-    "cart_show_free_shipping_threshold": true,
+    "cart_show_free_shipping_threshold": false,
     "cart_free_shipping_threshold": "250000",
     "social_facebook": "https://www.facebook.com/ofthesun.vn/",
     "social_instagram": "https://www.instagram.com/ofthesun.official/",
@@ -197,7 +197,7 @@
   "platform_customizations": {
     "custom_css": [
       ".blog-posts {--blog-articles-gap: 1.5rem;}",
-      ".header__link-list > ul > li:last-child > a {background: #a51919; color: #F2F2F2 !important; padding: 5px 10px;}"
+      ".header__link-list > ul > li:last-child > a {background: #a51919; color: #f2f2f2 !important; padding: 5px 10px;}"
     ]
   }
 }
